@@ -205,3 +205,7 @@ function(options) {
         exec(resolve, reject, PLUGIN_NAME, "requestPermission", [options || {}]);
     });
 };
+
+exports.handleOpenPayload = function(callback,errorCallback) {
+    exec(callback, errorCallback, PLUGIN_NAME, "handleOpenPayload", []);
+}

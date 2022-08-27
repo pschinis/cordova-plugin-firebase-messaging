@@ -139,6 +139,24 @@ public class FirebaseMessagingPlugin extends ReflectiveCordovaPlugin {
         }
     }
 
+    @CordovaMethod
+    private void handleOpenPayload(CordovaArgs args, CallbackContext callbackContext) throws JSONException {
+        Intent intent = cordova.getActivity().getIntent();
+        Bundle bundle = intent.getExtras();
+        if(bundle != null) {
+            if(bundle.containsKey(FirebaseMessagingPluginService.FCM_MSG_CLICK) || bundle.containsKey("google.message_id") || bundle.containsKey("google.sent_time")) {
+                JSONObject result = new JSONObject();
+                String key = FirebaseMessagingPluginService.FCM_CLICK_URL;
+                Object clickUrlObj = bundle.get(key);
+                if(clickUrlObj != null) {
+                    result.put("click-url",clickUrlObj.toString());
+                }
+                callbackContext.success(result);
+            }
+        }
+        
+    }
+
     @Override
     public void onNewIntent(Intent intent) {
         JSONObject notificationData = getNotificationData(intent);

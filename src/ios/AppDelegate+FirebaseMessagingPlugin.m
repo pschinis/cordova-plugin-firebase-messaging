@@ -91,6 +91,8 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
     NSDictionary *userInfo = response.notification.request.content.userInfo;
     FirebaseMessagingPlugin* fcmPlugin = [self getPluginInstance];
 
+    [fcmPlugin sendOpenPayload:userInfo];
+
     [fcmPlugin sendBackgroundNotification:userInfo];
 
     completionHandler();

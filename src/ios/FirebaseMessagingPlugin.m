@@ -197,4 +197,24 @@
     }
 }
 
+- (void)handleOpenPayload:(CDVInvokedUrlCommand *)command {
+    self.openPayloadCallbackId = command.callbackId;
+
+    if (self.openPayload) {
+        CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:self.openPayload];
+        [pluginResult setKeepCallbackAsBool:YES];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:self.openPayloadCallbackId];
+    }
+}
+
+- (void)sendOpenPayload:(NSDictionary *)payload {
+    self.openPayload = payload;
+
+    if (self.openPayloadCallbackId) {
+        CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:payload];
+        [pluginResult setKeepCallbackAsBool:YES];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:self.openPayloadCallbackId];
+    }
+}
+
 @end

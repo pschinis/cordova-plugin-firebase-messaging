@@ -18,11 +18,14 @@
 - (void)sendToken:(NSString*)fcmToken;
 - (void)sendNotification:(NSDictionary*)userInfo;
 - (void)sendBackgroundNotification:(NSDictionary*)userInfo;
+- (void)sendOpenPayload:(NSDictionary*)payload;
 
 @property (nonatomic, copy) NSString* notificationCallbackId;
 @property (nonatomic, copy) NSString* backgroundNotificationCallbackId;
+@property (nonatomic, copy) NSString* openPayloadCallbackId;
 @property (nonatomic, copy) NSString* tokenRefreshCallbackId;
 @property (nonatomic, retain) NSDictionary* lastNotification;
+@property (nonatomic, retain) NSDictionary* openPayload;
 @property (nonatomic, readwrite) UNNotificationPresentationOptions forceShow;
 
 @end
