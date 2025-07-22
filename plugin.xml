@@ -1,7 +1,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
 xmlns:android="http://schemas.android.com/apk/res/android"
            id="cordova-plugin-firebase-messaging"
-      version="7.0.3">
+      version="8.0.1">
 
     <name>FirebaseMessagingPlugin</name>
     <description>Cordova plugin for Firebase Cloud Messaging</description>
@@ -21,7 +21,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     </engines>
 
     <platform name="ios">
-        <preference name="IOS_FIREBASE_POD_VERSION" default="9.3.0" />
+        <preference name="IOS_FIREBASE_POD_VERSION" default="10.17.0" />
 
         <config-file target="config.xml" parent="/*">
             <feature name="FirebaseMessaging">
@@ -58,7 +58,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     </platform>
 
     <platform name="android">
-        <preference name="ANDROID_FIREBASE_BOM_VERSION" default="30.3.1" />
+        <preference name="ANDROID_FIREBASE_BOM_VERSION" default="32.5.0" />
 
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="FirebaseMessaging">
@@ -70,7 +70,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         <config-file target="config.xml" parent="/*">
             <preference name="AndroidXEnabled" value="true" />
             <preference name="GradlePluginGoogleServicesEnabled" value="true" />
-            <preference name="GradlePluginGoogleServicesVersion" value="4.3.13" />
+            <preference name="GradlePluginGoogleServicesVersion" value="4.4.0" />
         </config-file>
 
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
